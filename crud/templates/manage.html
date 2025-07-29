@@ -1,0 +1,99 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'index.css'%}">
+      <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css"
+    rel="stylesheet"
+    integrity="sha384-CffQ2xgAjGK7p1Uhe2Ij0mi1yDdgi/57U9Hyl9OGBqZ9ReX0S9P/xJ2E4FoLuwHN"
+    crossorigin="anonymous"
+  />
+</head>
+<body>
+    <div class="crud">
+        <h1>CRUD</h1>
+        <h5>create read update search</h5>
+        <div class="npt row">
+         
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    {% if edit_id %}
+        <button type="submit" name="save">تعديل المنتج</button>
+    {% else %}
+        <button type="submit" name="save">إضافة المنتج</button>
+    {% endif %}
+</form>
+<form action="" method="get">
+<input type="text" name="query" class="five" placeholder="search" value="{{ request.GET.query }}">
+<div class="tow2">
+  
+  <button type="submit" name="search_title">search by title</button>
+  <button type="submit" name="search_category">search by category</button>
+</div></form>
+<form method="POST">
+    {% csrf_token %}
+    <button type="submit" name="delete_all" onclick="return confirm('هل أنت متأكد من حذف الكل؟')">🧹 حذف الكل</button>
+</form>     </div>
+    <div class="table-responsive">
+   <table >
+  <thead>
+    <tr>
+      <td>ID</td>
+      <td>Title</td>
+      <td>price</td>
+   <td>Taxes</td>
+   <td>ADS</td>
+   <td>Discount</td>
+   <td>Total</td>
+   <td>category</td>
+   <td><button>Update</button></td>
+   <td><button>Delete</button></td>
+    </tr>
+  </thead>
+  <tbody>
+      {% for item in cruds %}
+        <tr>
+          <td>{{ item.id }}</td>
+          <td>{{ item.title }}</td>
+          <td>{{ item.price }}</td>
+          <td>{{ item.taxes }}</td>
+          <td>{{ item.ads }}</td>
+          <td>{{ item.discount }}</td>
+          <td>{{ item.total }}</td>
+          <td>{{ item.category }}</td>
+
+          <!-- زر التعديل -->
+          <td>
+            <a href="?edit={{ item.id }}">
+              <button class="btn btn-warning" type="button">Update</button>
+            </a>
+          </td>
+
+          <!-- زر الحذف -->
+          <td>
+            <form method="POST" style="display:inline;">
+              {% csrf_token %}
+              <input type="hidden" name="delete" value="{{ item.id }}">
+              <button type="submit" class="btn btn-danger" type="button">🗑️</button>
+            </form>
+          </td>
+        </tr>
+      {% endfor %}
+ 
+  </tbody>
+</table></div>
+    </div>
+
+      <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ENjdO4Dr2bkBIFxQpeoWkM3lMn+U6A6Pfz6r2r/JvN6wLBIKovx44wYfD5a5Wx9k"
+    crossorigin="anonymous"
+  ></script>
+
+</body>
+</html>
