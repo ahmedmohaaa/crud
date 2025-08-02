@@ -1,0 +1,109 @@
+* {
+    margin: 0;
+    padding: 0;
+    color: aliceblue;
+}
+body,html{
+    background-color: rgb(28, 31, 32);
+}
+.crud{
+  margin: 30px auto;
+  max-width: 800px;
+  width: 95%;
+}
+h1,h5{
+    text-align: center;
+    margin-top: 8px;
+    margin-bottom: 10px;
+}
+.crud input{
+    width: 100%;
+    height: 20px;
+    border-radius: 5px;
+    padding: 4px 4px;
+    background-color: black;
+    border: none;
+    margin: 6px 0;
+    color: white;
+}
+.num{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.num input{
+    margin-right: 4px;
+}
+.num small{
+    background-color: brown;
+    padding: 2px;
+}
+button{
+    width: 100%;
+    height: 25px;
+    border-radius: 5px;
+    padding: 4px 4px;
+    background-color: rgb(21, 23, 56);
+    border: none;
+    margin: 6px 0;
+    color: white;
+transition: .2s;
+}
+    .tow2{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .tow2 button{
+        margin-left: 15px;
+    }
+    button:hover{
+        scale: 1.04;
+        box-shadow: rgb(58, 100, 117) 4px 4px 8px ;
+    }
+    table{
+        width: 100%;
+           border-spacing: 0 10px; /* 10px مسافة بين الصفوف */
+    border-collapse: separate;
+    }
+table td {
+  border-bottom: 1px solid #ccc; /* خط خفيف تحت كل سطر */
+  padding: 8px; /* تحسين شكل الجدول */
+}@media (max-width: 768px) {
+  .num {
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .tow2 {
+    flex-direction: column;
+  }
+
+  .tow2 button {
+    margin-left: 0;
+    margin-bottom: 8px;
+    width: 100%;
+  }
+
+  h1, h5 {
+    font-size: 18px;
+  }
+}.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+}
+.table-responsive a{
+    width: 100%;
+    height: 25px;
+    border-radius: 5px;
+    padding: 4px 4px;
+    background-color: rgb(21, 23, 56);
+    border: none;
+    margin: 6px 0;
+    color: white;
+transition: .2s;
+text-decoration: none;
+}    a:hover{
+        scale: 1.04;
+        box-shadow: rgb(58, 100, 117) 4px 4px 8px ;
+    }
