@@ -27,7 +27,9 @@ SECRET_KEY = 'django-insecure-kexxee$)nv!e)ozge%$-+kj-bqv+1@ot1^oy#79&#hcwpv622c
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
-
+CSRF_TRUSTED_ORIGINS = [
+    'https://crud-production-b775.up.railway.app',
+]
 
 # Application definition
 
